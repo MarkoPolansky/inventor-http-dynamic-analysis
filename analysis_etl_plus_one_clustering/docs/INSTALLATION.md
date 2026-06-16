@@ -8,8 +8,7 @@
 | pip | 23+             | 
 
 
-The analysis was developed and tested on Windows 11. 
-
+The analysis was developed and tested on Windows 11 and on Ubuntu 24.04.1 running in Oracle VirtualBox.
 
 ## Optional Prerequisites
 The following prerequisites are only required if you want to generate or update adblock filter cache yourself using a custom filter list.
@@ -35,8 +34,6 @@ The expected top-level structure after cloning:
 
 ```
 analysis_etl_plus_one_clustering/
-analysis_single_resources/
-analysis_time_series_EWMA/
 data/
 shared/
 ```
@@ -70,13 +67,7 @@ The `requirements.txt` covers all packages used in the notebook. Key dependencie
 | `seaborn` | Heatmap rendering |
 | `numpy` | Array operations for sliding-window detection |
 
-If `ipywidgets` is installed but widgets do not render, enable the extension:
 
-```bash
-jupyter nbextension enable --py widgetsnbextension   # classic Notebook
-# or for JupyterLab:
-pip install jupyterlab-widgets
-```
 
 
 ---
