@@ -1,0 +1,250 @@
+[
+  {
+    "test_id": "webapp.http.dynamic.11",
+    "target_host": "https://google.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.12",
+    "target_host": "https://microsoft.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.13",
+    "target_host": "https://facebook.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.14",
+    "target_host": "https://apple.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.15",
+    "target_host": "https://instagram.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.16",
+    "target_host": "https://twitter.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.17",
+    "target_host": "https://office.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.18",
+    "target_host": "https://linkedin.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.19",
+    "target_host": "https://azure.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.20",
+    "target_host": "https://amazon.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.21",
+    "target_host": "https://wikipedia.org"
+  },
+  {
+    "test_id": "webapp.http.dynamic.22",
+    "target_host": "https://doubleclick.net"
+  },
+  {
+    "test_id": "webapp.http.dynamic.23",
+    "target_host": "https://github.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.24",
+    "target_host": "https://bing.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.25",
+    "target_host": "https://whatsapp.net"
+  },
+  {
+    "test_id": "webapp.http.dynamic.26",
+    "target_host": "https://netflix.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.27",
+    "target_host": "https://workers.dev"
+  },
+  {
+    "test_id": "webapp.http.dynamic.28",
+    "target_host": "https://icloud.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.29",
+    "target_host": "https://pinterest.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.30",
+    "target_host": "https://yahoo.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.31",
+    "target_host": "https://skype.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.32",
+    "target_host": "https://msn.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.33",
+    "target_host": "https://ntp.org"
+  },
+  {
+    "test_id": "webapp.http.dynamic.34",
+    "target_host": "https://goo.gl"
+  },
+  {
+    "test_id": "webapp.http.dynamic.35",
+    "target_host": "https://spotify.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.36",
+    "target_host": "https://roblox.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.37",
+    "target_host": "https://tiktok.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.38",
+    "target_host": "https://bit.ly"
+  },
+  {
+    "test_id": "webapp.http.dynamic.39",
+    "target_host": "https://zoom.us"
+  },
+  {
+    "test_id": "webapp.http.dynamic.40",
+    "target_host": "https://qq.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.41",
+    "target_host": "https://wordpress.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.42",
+    "target_host": "https://gandi.net"
+  },
+  {
+    "test_id": "webapp.http.dynamic.43",
+    "target_host": "https://mozilla.org"
+  },
+  {
+    "test_id": "webapp.http.dynamic.44",
+    "target_host": "https://cloudflare-dns.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.45",
+    "target_host": "https://nginx.org"
+  },
+  {
+    "test_id": "webapp.http.dynamic.46",
+    "target_host": "https://googledomains.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.47",
+    "target_host": "https://baidu.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.48",
+    "target_host": "https://nist.gov"
+  },
+  {
+    "test_id": "webapp.http.dynamic.49",
+    "target_host": "https://ui.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.50",
+    "target_host": "https://opera.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.51",
+    "target_host": "https://telekom.de"
+  },
+  {
+    "test_id": "webapp.http.dynamic.52",
+    "target_host": "https://sentry.io"
+  },
+  {
+    "test_id": "webapp.http.dynamic.53",
+    "target_host": "https://blogspot.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.54",
+    "target_host": "https://snapchat.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.55",
+    "target_host": "https://t.me"
+  },
+  {
+    "test_id": "webapp.http.dynamic.56",
+    "target_host": "https://europa.eu"
+  },
+  {
+    "test_id": "webapp.http.dynamic.57",
+    "target_host": "https://amazonvideo.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.58",
+    "target_host": "https://vk.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.59",
+    "target_host": "https://dns.google"
+  },
+  {
+    "test_id": "webapp.http.dynamic.60",
+    "target_host": "https://meraki.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.61",
+    "target_host": "https://yandex.net"
+  },
+  {
+    "test_id": "webapp.http.dynamic.62",
+    "target_host": "https://apache.org"
+  },
+  {
+    "test_id": "webapp.http.dynamic.63",
+    "target_host": "https://myfritz.net"
+  },
+  {
+    "test_id": "webapp.http.dynamic.64",
+    "target_host": "https://github.io"
+  },
+  {
+    "test_id": "webapp.http.dynamic.65",
+    "target_host": "https://dropbox.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.66",
+    "target_host": "https://one.one"
+  },
+  {
+    "test_id": "webapp.http.dynamic.67",
+    "target_host": "https://gravatar.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.68",
+    "target_host": "https://criteo.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.69",
+    "target_host": "https://lencr.org"
+  },
+  {
+    "test_id": "webapp.http.dynamic.70",
+    "target_host": "https://tumblr.com"
+  },
+  {
+    "test_id": "webapp.http.dynamic.71",
+    "target_host": "https://pki.goog"
+  },
+  {
+    "test_id": "webapp.http.dynamic.72",
+    "target_host": "https://applovin.com"
+  }
+]

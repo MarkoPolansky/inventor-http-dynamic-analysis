@@ -1,0 +1,5 @@
+tldextract
+notebook
+matplotlib
+numpy
+ipywidgets
