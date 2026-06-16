@@ -236,10 +236,9 @@ A concrete example: in 2024, AWS submitted 462 new rules to the PSL, including `
 They are meant to be treated as distinct eTLD+1 groups. With an old PSL predating this submission, the only relevant suffix rule in PSL is `com`, so the eTLD+1 for every S3 URL — regardless of bucket owner — resolves to `amazonaws.com`. All resources from all customers collapse into one group in the heatmap.
 
 
-
 <div align="center">
-  <img src="img/img.png"
-       width="500"
+  <img src="img/old_psl_example.png"
+       width="800"
        alt="Impact of using old PSL">
 </div>
 
