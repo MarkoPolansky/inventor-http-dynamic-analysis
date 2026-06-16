@@ -109,20 +109,21 @@ The two approaches are illustrated below:
 `g.com/script.js` and `ads.com/script.js` are excluded because they match filter rules directly. `a.com/functional.js`, loaded by `g.com/script.js`, is kept because it does not match any rule on its own.
 
 
-<div style="background-color: white; padding: 10px; display: inline-block; max-width:500px">
-  <img src="img/adblock_direct.png" alt="Direct blocking only">
+<div align="center">
+  <img src="img/adblock_direct.png"
+       width="500"
+       alt="Direct blocking only">
 </div>
-
 
 ### Transitive blocking
 `g.com/script.js` is excluded by a filter rule. `ads.com/script.js` and `a.com/functional.js`, both loaded by the excluded `g.com/script.js`, are additionally excluded as transitive dependencies even though they do not match any rule directly.
 
 
-
-<div style="background-color: white; padding: 10px; display: inline-block; max-width:500px">
-  <img src="img/adblock_transitive.png" alt="Transitive blocking">
+<div align="center">
+  <img src="img/adblock_transitive.png"
+       width="500"
+       alt="Transitive blocking">
 </div>
-
 
 This notebook uses the **direct blocking approach**. This approach aligns with the labeling methodology used in TrackerSift (Amjad et al., IMC 2021 available from: https://arxiv.org/abs/2108.13923), which uses EasyList and EasyPrivacy applied to individual network requests as the test oracle — the ground truth source for distinguishing tracking from functional resources.
 
@@ -202,7 +203,15 @@ The notebook uses `tldextract` library to group resources by eTLD+1 domains.
 
 The PSL has been extended since its creation in 2007. The chart below shows the cumulative number of rules in the list broken down by rule type, tracked across every commit to the repository from 2007 to the present.
 
-![Public suffix list changes over time](img/PSL_in_time.png)
+
+<div align="center">
+  <img src="img/PSL_in_time.png"
+       width="800"
+       alt="Public suffix list changes over time">
+</div>
+
+
+
 
 The legend categories correspond to the rule structure defined in the PSL specification:
 
@@ -226,8 +235,12 @@ A concrete example: in 2024, AWS submitted 462 new rules to the PSL, including `
 
 They are meant to be treated as distinct eTLD+1 groups. With an old PSL predating this submission, the only relevant suffix rule in PSL is `com`, so the eTLD+1 for every S3 URL — regardless of bucket owner — resolves to `amazonaws.com`. All resources from all customers collapse into one group in the heatmap.
 
-<div style="background-color: white; padding: 10px; display: inline-block;">
-  <img src="img/img.png" alt="Impact of using old PSL">
+
+
+<div align="center">
+  <img src="img/img.png"
+       width="500"
+       alt="Impact of using old PSL">
 </div>
 
 
