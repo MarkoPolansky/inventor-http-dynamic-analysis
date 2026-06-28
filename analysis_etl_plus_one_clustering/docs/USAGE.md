@@ -2,10 +2,13 @@
 
 ## Introduction
 
+When a browser navigates to a web page, the first thing it receives is an HTML document. That document is not the page itself — it is a blueprint. It contains references to all the additional resources needed to render the page: stylesheets that control layout and appearance, JavaScript files that add interactivity, images, fonts, API calls that fetch dynamic content, and more. The browser fetches each of these resources in turn, often from many different servers and domains. 
 
-This notebook analyses **resource domains** loaded by actively monitored web pages.  
-The notebook groups resources by their **eTLD+1 domain** (e.g. `cdn.example.co.uk` -> `example.co.uk`) and then detects anomalies over time using a sliding-window.
+Each of these external dependencies represents a point of failure outside the direct control of the organisation operating the monitored site. When one silently disappears — a script stops being served, an API endpoint starts returning errors — the impact can range from a broken layout to a completely non-functional service. Because these failures happen at the resource level rather than at the page level, they are invisible to HTTP availability monitors that only request a single endpoint and verify the returned response. 
 
+However, tracking resources by their exact URL introduces a fundamental problem: individual resource URLs are often not stable over time. Query parameters change on every visit, filenames embed content hashes that rotate on every deployment. As a result, a page that is behaviourally stable — always loading the same logical set of assets from the same providers — can appear highly unstable when tracked at the URL level.
+
+This notebook addresses that problem by shifting the unit of analysis from individual URLs to **eTLD+1 domains** (e.g. `https:\\cdn.example.co.uk/index.html` → `example.co.uk`). Instead of asking *"is this exact URL present?"*, the question becomes *"is any resource from this domain present?"*. Under this model, a script that rotates its filename on every deployment, or an image whose query parameter changes on every visit — all remain invisible to the detector as long as the underlying domain stays the same. What the detector does see is when an entire domain disappears from the page, or when a domain that was never seen before starts appearing — which are precisely the signals that indicate a genuine infrastructure-level change.
 
 ### Main Features
 - Filters ad/tracker resources using the Ghostery adblocker (optional) to reduce noise from advertising domains.
@@ -97,7 +100,7 @@ The **Use adblocker to filter ads** optional checkbox runs every resource URL th
 
 Click **Run analysis**. Output should appear below the controls for example:
 
-![Result example](img/result_example.png)
+![Result example](img/example_result.png)
 
 
 A site is **skipped** if it has fewer snapshots than `WINDOW` (default: 144). You need at least 145 snapshots of data for a site to appear in the results.

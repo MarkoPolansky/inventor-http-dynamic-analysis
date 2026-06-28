@@ -1,5 +1,29 @@
 # Developer Manual — eTLD+1 Clustering Analysis Notebook
 
+# Section Menu
+
+- [Developer Manual — eTLD+1 Clustering Analysis Notebook](#developer-manual--etld1-clustering-analysis-notebook)
+  - [Notebook Structure](#notebook-structure)
+    - [Cell 1 — Imports and Configuration](#cell-1--imports-and-configuration)
+    - [Cell 2 — Config Loading and File Discovery](#cell-2--config-loading-and-file-discovery)
+    - [Cell 3 — Aggregation, Detection and Visualisation Functions](#cell-3--aggregation-detection-and-visualisation-functions)
+    - [Cell 4 — Widget UI and Run Callback](#cell-4--widget-ui-and-run-callback)
+    - [Activity Diagram](#activity-diagram)
+- [Adblock Filtering](#adblock-filtering)
+  - [Filtering Approach](#filtering-approach)
+    - [Direct blocking only](#direct-blocking-only)
+    - [Transitive blocking](#transitive-blocking)
+  - [Adblock Cache](#adblock-cache)
+    - [Why a Cache is Needed](#why-a-cache-is-needed)
+    - [Cache Workflow (inside `on_run`)](#cache-workflow-inside-on_run)
+    - [Changing Filter Lists](#changing-filter-lists)
+- [Using eTLD+1 Domain Groups](#using-etld1-domain-groups)
+  - [Motivation](#motivation)
+  - [What eTLD+1 Means](#what-etld1-means)
+  - [How the Public Suffix List Has Grown Over Time](#how-the-public-suffix-list-has-grown-over-time)
+  - [What Happens When Using an Outdated PSL](#what-happens-when-using-an-outdated-psl)
+- [Data Model](#data-model)
+- [Known Limitations](#known-limitations)
 
 ## Notebook Structure
 
@@ -169,9 +193,9 @@ The pre-populated cache files are tied to the specific filter lists used when th
 
 
 
-## Using eTLD+1 Domain Groups
+# Using eTLD+1 Domain Groups
 
-### Motivation
+## Motivation
 
 The notebook tracks third-party dependencies across time by grouping resources under their **eTLD+1** (effective top-level domain plus one label) rather than by full URL. This is a deliberate design choice driven by the unreliability of tracking individual resource URLs over time.
 
@@ -186,7 +210,7 @@ https://cdn.example.com/v2/bundle/app-20240315.min.js
 
 By collapsing all of these to `example.com`, the notebook builds a stable presence signal for each provider across every snapshot in the analysis window, which makes the sliding-window anomaly detection meaningful.
 
-### What eTLD+1 Means
+## What eTLD+1 Means
 
 The **public suffix list** defines which parts of a domain name are delegated to registrars and therefore not registerable by end users (`com`, `co.uk`, `github.io`, `s3.amazonaws.com`, etc.). The **eTLD+1** is the public suffix plus the one label to its left — the smallest unit a private entity can actually own and register.
 
@@ -199,7 +223,7 @@ The **public suffix list** defines which parts of a domain name are delegated to
 The notebook uses `tldextract` library to group resources by eTLD+1 domains.
 
 
-### How the Public Suffix List Has Grown Over Time
+## How the Public Suffix List Has Grown Over Time
 
 The PSL has been extended since its creation in 2007. The chart below shows the cumulative number of rules in the list broken down by rule type, tracked across every commit to the repository from 2007 to the present.
 
@@ -224,9 +248,9 @@ The legend categories correspond to the rule structure defined in the PSL specif
 | `exception rules` | Exceptions to a wildcard rules                                        |
 
 
-### What Happens When Using an Outdated PSL
+## What Happens When Using an Outdated PSL
 
-If the PSL is outdated, newly delegated suffixes are not recognised and eTLD+1 extraction falls back to a shorter, incorrect split. Resources that belong to distinct tenants or customers collapse into a single group in the heatmap — anomaly detection fires at the wrong level and the chart becomes uninterpretable.
+If the PSL is outdated, newly delegated suffixes are not recognised and eTLD+1 extraction falls back to a shorter, incorrect split. Resources that belong to distinct tenants or customers collapse into a single group — anomaly detection fires at the wrong level and the analysis results cannot differentiate between tenants.
 
 A concrete example: in 2024, AWS submitted 462 new rules to the PSL, including `s3-1.amazonaws.com`entry . The intent is to give each AWS customer an isolated, registrable domain:
 
@@ -251,7 +275,7 @@ In the scenario illustrated above, two resources loaded by `mysite.s3-1.amazonaw
 are failing (detected anomaly), while `mysite.s3-1.amazonaws.com/main.js` is healthy. With the old PSL rule (`com`), both customers resolve to `amazonaws.com` — the anomaly is reported at that level and it is impossible to tell which bucket or client is affected. With the updated PSL rule (`s3-1.amazonaws.com` as public suffix), the two customers are separated into `images.s3-1.amazonaws.com` and `mysite.s3-1.amazonaws.com`, the anomaly is attributed correctly.
 
 
-## Data Model
+# Data Model
 
 This section describes the five core data structures that flow through the analysis pipeline.
 
@@ -401,7 +425,7 @@ anomalies: defaultdict[str, list[tuple[int, str]]]
 ---
 
 
-## Known Limitations
+# Known Limitations
 
 **Performance on large datasets.** All snapshots for all selected sites are loaded into memory before aggregation. Selecting multiple websites and wide date range can result to a high RAM consumption and long analysis execution.
 
