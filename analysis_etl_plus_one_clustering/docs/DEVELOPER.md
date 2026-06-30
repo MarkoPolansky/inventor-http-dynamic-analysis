@@ -89,11 +89,11 @@ The user selects sites by human-readable URL (e.g. `https://google.com`) in the 
 
 Contains three functions:
 
-| Function | Purpose |
-|---|---|
+| Function | Purpose                                                              |
+|---|----------------------------------------------------------------------|
 | `aggregate_page(snapshots, blocked)` | Filter blocked resources, group by eTLD+1, count presence and errors |
-| `detect_sliding_window(snap_data, domains, n_snaps)` | Detect anomalies using sliding window |
-| `plot_page(...)` | Render heatmap with anomaly markers, optionally save PNG |
+| `detect_sliding_window(snap_data, domains, n_snaps)` | Detect anomalies using sliding window                                |
+| `plot_page(...)` | Render presence chart with anomaly markers, optionally save PNG      |
 
 ---
 
@@ -257,7 +257,7 @@ A concrete example: in 2024, AWS submitted 462 new rules to the PSL, including `
 - `mysite.s3-1.amazonaws.com` — one client
 - `images.s3-1.amazonaws.com` — another client
 
-They are meant to be treated as distinct eTLD+1 groups. With an old PSL predating this submission, the only relevant suffix rule in PSL is `com`, so the eTLD+1 for every S3 URL — regardless of bucket owner — resolves to `amazonaws.com`. All resources from all customers collapse into one group in the heatmap.
+They are meant to be treated as distinct eTLD+1 groups. With an old PSL predating this submission, the only relevant suffix rule in PSL is `com`, so the eTLD+1 for every S3 URL — regardless of bucket owner — resolves to `amazonaws.com`. All resources from all customers collapse into one group in the presence chart.
 
 
 <div align="center">
@@ -370,7 +370,7 @@ domains: list[str]
 
 ### `presence`
 
-Output of `detect_sliding_window()`. A dict mapping each domain to a `numpy.ndarray` of length `n_snaps` (total snapshot count). Each element is a `float32` value of `1.0` if the domain was present in that snapshot, `0.0` otherwise. Used directly by `plot_page()` to build the heatmap matrix.
+Output of `detect_sliding_window()`. A dict mapping each domain to a `numpy.ndarray` of length `n_snaps` (total snapshot count). Each element is a `float32` value of `1.0` if the domain was present in that snapshot, `0.0` otherwise. 
 
 ```python
 presence: dict[str, np.ndarray]

@@ -35,6 +35,7 @@ The expected top-level structure after cloning:
 ```
 analysis_etl_plus_one_clustering/
 analysis_single_resources/
+analysis_time_series_EWMA/
 data/
 shared/
 ```

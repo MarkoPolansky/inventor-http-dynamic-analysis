@@ -101,11 +101,11 @@ The user selects sites by human-readable URL (e.g. `https://google.com`) in the 
 
 Contains three functions:
 
-| Function                                               | Purpose                                                                   |
-|--------------------------------------------------------|---------------------------------------------------------------------------|
+| Function                                               | Purpose                                                                     |
+|--------------------------------------------------------|-----------------------------------------------------------------------------|
 | `aggregate_page(snapshots, blocked)`                   | Filter blocked resources, group by `resource_id`, count presence and errors |
-| `detect_sliding_window(snap_data, resources, n_snaps)` | Detect anomalies using sliding window                                     |
-| `plot_page(...)`                                       | Render heatmap with anomaly markers, optionally save PNG                  |
+| `detect_sliding_window(snap_data, resources, n_snaps)` | Detect anomalies using sliding window                                       |
+| `plot_page(...)`                                       | Render presence chart with anomaly markers, optionally save PNG             |
 
 > **Note:** `resource_id` is the identifier of resource in the form `<METHOD>||<URL>`.
 ---
@@ -469,7 +469,7 @@ domains: list[str]
 
 ### `presence`
 
-Output of `detect_sliding_window()`. A dict mapping each resource to a `numpy.ndarray` of length `n_snaps` (total snapshot count). Each element is a `float32` value of `1.0` if the domain was present in that snapshot, `0.0` otherwise. Used directly by `plot_page()` to build the heatmap matrix.
+Output of `detect_sliding_window()`. A dict mapping each resource to a `numpy.ndarray` of length `n_snaps` (total snapshot count). Each element is a `float32` value of `1.0` if the domain was present in that snapshot, `0.0` otherwise.
 
 ```python
 presence: dict[str, np.ndarray]

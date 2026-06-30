@@ -1,4 +1,4 @@
-# Installation Manual — eTLD+1 Clustering Analysis Notebook
+# Installation Manual — Time Series EWMA Notebook
 
 ## Prerequisites
 
@@ -64,9 +64,10 @@ The `requirements.txt` covers all packages used in the notebook. Key dependencie
 |--------------|---|
 | `notebook`   | Notebook runtime |
 | `ipywidgets` | Interactive date slider and site selector |
-| `tldextract` | eTLD+1 extraction from URLs |
 | `matplotlib` | Chart rendering |
 | `numpy`      | Array operations for sliding-window detection |
+| `pandas`      | Data loading, manipulation, and analysis using DataFrames |
+
 
 
 
@@ -88,6 +89,6 @@ jupyter notebook
 jupyter lab
 ```
 
-Navigate to `analysis_etl_plus_one_clustering/analysis_etdl_plus_one_clustering.ipynb` and run all cells from top to bottom.
+Navigate to `analysis_time_series_EWMA/analysis_time_series_ewma.ipynb` and run all cells from top to bottom.
 
 ---
